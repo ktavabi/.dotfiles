@@ -1,10 +1,6 @@
-# Denys Dovhan’s dotfiles
+# Kambizzz's dotfiles
 
-<p align="center">
-  <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
-</p>
-
-There are tons of useful things in here:
+On top of all the excellent ㊝ work found [here!](https://github.com/denysdovhan/dotfiles):
 
 - The usefulness of [“Oh My ZSH!”](http://ohmyz.sh/) is already built–in.
 - [🚀⭐️ Spaceships](https://github.com/spaceship-prompt/spaceship-prompt) as a prompt.
@@ -17,8 +13,17 @@ There are tons of useful things in here:
 - Git config, global `.gitignore` file and aliases.
 - Dotfiles synchronization (`sync.py`) with backup.
 - Restoring old dotfiles (`restore.py`) from backup.
-- A lot of [useful bins](https://github.com/denysdovhan/dotfiles/tree/master/bin).
+- A lot of [useful bins](https://github.com/ktavabi/dotfiles/tree/master/bin).
 - `update` script for updating dotfiles, npm, brew, gems, etc.
+
+I've hooked in:
+- Some "sensible" macOS default [configs](https://github.com/mathiasbynens/dotfiles/blob/66ba9b3cc0ca1b29f04b8e39f84e5b034fdb24b6/.macos)
+
+  ```
+    .macos
+  ```
+- Little [`.bash` 🍳 ](https://pipenv-pipes.readthedocs.io/en/latest/completions.html#bash-zsh) script for `pipenv` autocompletion
+
 
 Missing feature? 🍴 Fork this repo and make it better!
 
@@ -29,13 +34,13 @@ Dotfiles are installed by running one of the following commands in your terminal
 **via `curl`**
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ktavabi/dotfiles/master/installer.sh)"
 ```
 
 **via `wget`**
 
 ```sh
-bash -c "$(wget https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh -O -)"
+bash -c "$(wget https://raw.githubusercontent.com/ktavabi/dotfiles/master/installer.sh -O -)"
 ```
 
 Tell Git who you are using these commands:
@@ -210,4 +215,4 @@ Resources that I used to make these dotfiles better:
 
 ## License
 
-MIT © [Denys Dovhan](https://denysdovhan.com)
+MIT © [Denys Dovhan](https://ktavabi.com)

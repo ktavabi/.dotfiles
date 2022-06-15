@@ -82,9 +82,9 @@ if [[ -f "$HOME/.zshlocal" ]]; then
 fi
 
 # Sourcing all zsh files from $DOTFILES/custom
-# for file in "$DOTFILES/custom/"*.zsh; do
-#   source "$file"
-# done
+ for file in "$DOTFILES/custom/"*.zsh; do
+   source "$file"
+ done
 
 # ------------------------------------------------------------------------------
 # Oh My Zsh
@@ -96,6 +96,7 @@ export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 plugins=(
   history-substring-search
   git
+  gitfast
   npm
   yarn
   nvm
@@ -107,6 +108,7 @@ plugins=(
   vscode
   common-aliases
   command-not-found
+  mvn 
   docker
   pyenv
   pipenv

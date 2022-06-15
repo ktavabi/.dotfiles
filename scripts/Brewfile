@@ -42,3 +42,6 @@ cask "qlstephen" # https://github.com/whomwah/qlstephen
 cask "quicklook-json" # https://github.com/sindresorhus/quick-look-plugins
 cask "qlimagesize" # https://github.com/Nyx0uf/qlImageSize
 cask "webpquicklook" # https://github.com/dchest/webp-quicklook
+
+# MacAppstore 1password vault
+mas install 1333542190
