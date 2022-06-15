@@ -24,12 +24,22 @@ _extend_path() {
   fi
 }
 
+# Add Homebrew bin to $PATH
+[[ -d "/opt/homebrew/bin" ]] && _extend_path "/opt/homebrew/bin"
+
+# Add openssl to $PATH
+[[ -d "/opt/homebrew/opt/openssl@3/bin" ]] && _extend_path "/opt/homebrew/opt/openssl@3/bin"
+
+# Add pyenv to $PATH
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d "$PYENV_ROOT/bin" ]] && _extend_path "$PYENV_ROOT/bin"
+eval "$(pyenv init --path)"
+
 # Add custom bin to $PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
 [[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
 [[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
-[[ -d "$PYENV_ROOT/bin" ]] && _extend_path "$PYENV_ROOT/bin"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then

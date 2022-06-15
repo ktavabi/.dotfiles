@@ -120,11 +120,6 @@ install_homebrew() {
   finish
 }
 
-configure_mac() {
-  if [ "$(uname)" == "Darwin" ]; then
-    source /.macos
-}
-
 install_git() {
   info "Trying to detect installed Git..."
 

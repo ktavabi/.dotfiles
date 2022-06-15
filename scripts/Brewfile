@@ -10,6 +10,8 @@ brew "wget"
 brew "yarn"
 brew "tldr"
 brew "mas"
+brew "openssl@3"
+brew "spaceship"
 
 # Desktop applications
 cask "gpg-suite"
