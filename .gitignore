@@ -1,0 +1,9 @@
+# Backup folder
+backup
+
+# Custom files (*sh includes sh, bash, zsh)
+custom/**/*.*sh
+
+# Sheldon
+home/.sheldon/repos
+home/.sheldon/plugins.lock
