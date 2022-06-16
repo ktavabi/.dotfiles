@@ -49,6 +49,7 @@ alias version="commit 'version'"
 alias zshconfig="atom ~/.zshrc"
 alias ohmyzsh="atom ~/.oh-my-zsh"
 alias h="history"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'  # To fix brew doctor's warning ""config" scripts exist outside your system or Homebrew directories"
 
 # Open aliases
 alias open='open_command'

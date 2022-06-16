@@ -34,7 +34,6 @@ cask "latexit"
 
 # Python
 brew pyenv
-brew pipenv
 
 # Quick Look plugins
 cask "qlcolorcode" # https://github.com/anthonygelibert/QLColorCode

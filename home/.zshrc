@@ -6,6 +6,8 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+autoload -U compinit && compinit
+
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
@@ -19,7 +21,7 @@ set -o noclobber
 
 # Extend $PATH without duplicates
 _extend_path() {
-  if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
+  if ! $(echo "$PATH" | tr ":" "\n" | grep -qx "$1"); then
     export PATH="$1:$PATH"
   fi
 }
@@ -30,16 +32,16 @@ _extend_path() {
 # Add openssl to $PATH
 [[ -d "/opt/homebrew/opt/openssl@3/bin" ]] && _extend_path "/opt/homebrew/opt/openssl@3/bin"
 
-# Add pyenv to $PATH
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d "$PYENV_ROOT/bin" ]] && _extend_path "$PYENV_ROOT/bin"
-eval "$(pyenv init --path)"
-
 # Add custom bin to $PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
 [[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
 [[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
+[[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
+
+# Add pyenv to $PATH
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d "$PYENV_ROOT/bin" ]] && _extend_path "$PYENV_ROOT/bin"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -67,7 +69,7 @@ export LESS="${less_opts[*]}"
 # Default editor for local and remote sessions
 if [[ -n "$SSH_CONNECTION" ]]; then
   # on the server
-  if [ command -v vim >/dev/null 2>&1 ]; then
+  if [ command -v vim ] >/dev/null 2>&1; then
     export EDITOR='vim'
   else
     export EDITOR='vi'
@@ -82,9 +84,14 @@ if [[ -f "$HOME/.zshlocal" ]]; then
 fi
 
 # Sourcing all zsh files from $DOTFILES/custom
- for file in "$DOTFILES/custom/"*.zsh; do
-   source "$file"
- done
+for file in "$DOTFILES/custom/"*.zsh; do
+  source "$file"
+done
+
+# Add command gitit to open Github repo in default browser from a local repo
+source $DOTFILES/lib/gitit.zsh
+
+export WORKON_HOME=~/.venvs
 
 # ------------------------------------------------------------------------------
 # Oh My Zsh
@@ -93,7 +100,10 @@ fi
 # OMZ is managed by Sheldon
 export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 
+ZSH_THEME="spaceship"
+
 plugins=(
+  history
   history-substring-search
   git
   gitfast
@@ -108,13 +118,19 @@ plugins=(
   vscode
   common-aliases
   command-not-found
-  mvn 
+  mvn
   docker
-  pyenv
-  pipenv
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
+
+source "$ZSH/oh-my-zsh.sh"
+
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
 
 eval "$(sheldon source)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" # pipenv zsh tab autocomp

@@ -17,13 +17,16 @@ On top of all the excellent ㊝ work found [here!](https://github.com/denysdovha
 - `update` script for updating dotfiles, npm, brew, gems, etc.
 
 I've hooked in:
+
 - Some "sensible" macOS default [configs](https://github.com/mathiasbynens/dotfiles/blob/66ba9b3cc0ca1b29f04b8e39f84e5b034fdb24b6/.macos)
 
-  ```
-    .macos
-  ```
-- Little [`.bash` 🍳 ](https://pipenv-pipes.readthedocs.io/en/latest/completions.html#bash-zsh) script for `pipenv` autocompletion
+  ```sh
 
+    .macos
+
+  ```
+
+- Little [.bash 🍳](https://pipenv-pipes.readthedocs.io/en/latest/completions.html#bash-zsh) script for `pipenv` autocompletion
 
 Missing feature? 🍴 Fork this repo and make it better!
 
@@ -34,28 +37,36 @@ Dotfiles are installed by running one of the following commands in your terminal
 **via `curl`**
 
 ```sh
+
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ktavabi/dotfiles/master/installer.sh)"
+
 ```
 
 **via `wget`**
 
 ```sh
+
 bash -c "$(wget https://raw.githubusercontent.com/ktavabi/dotfiles/master/installer.sh -O -)"
+
 ```
 
 Tell Git who you are using these commands:
 
-```
+```sh
+
 git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
+
 ```
 
 ## Updating
 
 Use single command to get latest updates:
 
-```
+```sh
+
 update
+
 ```
 
 This command will update dotfiles, their dependencies, `brew` or `apt-get` packages, global `npm` dependencies, `gem`s, `apm` plugins.
@@ -68,12 +79,14 @@ This command will update dotfiles, their dependencies, `brew` or `apt-get` packa
 
 I suggest you to organize project folder as follows:
 
-```
+```sh
+
 ~/Projects
 ├── Forks       # for GitHub fork
 ├── Job         # for job projects
 ├── Playground  # for short-term experiments
 └── Repos       # for long-term projects
+
 ```
 
 ### Aliases
