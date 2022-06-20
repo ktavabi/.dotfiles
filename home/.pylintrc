@@ -1,4 +1,23 @@
+[MAIN]
+
+# Python code to execute
 init-hook=
 try: import pylint_venv
 except ImportError: pass
 else: pylint_venv.inithook()
+
+# Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
+# number of processors available to use.
+jobs=0
+
+[BASIC]
+
+# Good variable names which should always be accepted, separated by a comma.
+good-names=i, j, k, ex, Run, df, l, l1, l2, l3
+
+[MISCELLANEOUS]
+
+# List of note tags to take in consideration, separated by a comma.
+notes=FIXME,XXX,TODO
+
+disable=C0321

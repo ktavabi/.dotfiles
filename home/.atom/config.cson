@@ -1,0 +1,29 @@
+"*":
+  Hydrogen:
+    debug: true
+    globalMode: true
+    kernelNotifications: true
+    outputAreaDefault: true
+    outputAreaDock: true
+    outputAreaFontSize: 9
+    wrapOutput: true
+  "autocomplete-python":
+    useKite: false
+  core:
+    projectHome: "/Users/kam/Documents/Projects"
+    telemetryConsent: "limited"
+  editor: {}
+  "exception-reporting":
+    userId: "07eca6f1-ad95-4e72-8659-7983c433d5f3"
+  "linter-pylint":
+    disableTimeout: true
+    executablePath: "/Users/kam/.pyenv/shims/pylint"
+  "linter-ui-default":
+    panelHeight: 343
+    showPanel: true
+  welcome:
+    showOnStartup: false
+".json.source":
+  editor:
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true

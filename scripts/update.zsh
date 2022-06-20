@@ -57,8 +57,8 @@ update_dotfiles() {
   info "Updating dotfiles..."
 
   cd $DOTFILES
-  git pull origin master
-  ./sync.py
+  git pull origin
+  # TODO python -m sync "$HOME/.dotfiles" "$HOME" "$HOME/dotfiles_bak"
   cd - > /dev/null 2>&1
 
   info "Updating Zsh plugins..."

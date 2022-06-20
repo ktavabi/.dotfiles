@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 #
 # ~/.zshrc
 #
@@ -6,7 +8,12 @@
 # Environment
 # ------------------------------------------------------------------------------
 
-autoload -U compinit && compinit
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
@@ -31,6 +38,9 @@ _extend_path() {
 
 # Add openssl to $PATH
 [[ -d "/opt/homebrew/opt/openssl@3/bin" ]] && _extend_path "/opt/homebrew/opt/openssl@3/bin"
+
+# Add Homebrew Ruby to $PATH
+[[ -d "/opt/homebrew/opt/ruby/bin" ]] && _extend_path "/opt/homebrew/opt/ruby/bin"
 
 # Add custom bin to $PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
@@ -78,6 +88,10 @@ else
   export EDITOR='vim'
 fi
 
+# Compilation flags
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+
 # Source local configuration
 if [[ -f "$HOME/.zshlocal" ]]; then
   source "$HOME/.zshlocal"
@@ -102,6 +116,11 @@ export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 
 ZSH_THEME="spaceship"
 
+# case insensitive path-completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+
+# partial completion suggestions
+zstyle ':completion:*' list-suffixeszstyle ':completion:*' expand prefix suffix
 plugins=(
   history
   history-substring-search
@@ -134,3 +153,7 @@ eval "$(sheldon source)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" # pipenv zsh tab autocomp
+# eval "$(_FOO_BAR_COMPLETE=zsh_source foo-bar)"
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
