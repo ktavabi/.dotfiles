@@ -105,8 +105,6 @@ done
 # Add command gitit to open Github repo in default browser from a local repo
 source $DOTFILES/lib/gitit.zsh
 
-export WORKON_HOME=~/.venvs
-
 # ------------------------------------------------------------------------------
 # Oh My Zsh
 # ------------------------------------------------------------------------------

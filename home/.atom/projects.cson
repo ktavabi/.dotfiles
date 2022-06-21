@@ -1,0 +1,17 @@
+[
+  {
+    title: "Ppic Zelle"
+    paths: [
+      "/Users/kam/Documents/Projects/Playground/PPIC-Zelle"
+    ]
+    devMode: true
+  }
+  {
+    title: "Dotfiles"
+    group: "env"
+    paths: [
+      "/Users/kam/.dotfiles"
+    ]
+    devMode: true
+  }
+]

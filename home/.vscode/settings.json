@@ -1,46 +1,52 @@
 {
-    "[jsonc]": {
-        "editor.defaultFormatter": "trunk.io"
-    },
-    "[python]": {
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
-    "editor.accessibilitySupport": "off",
-    "editor.formatOnSave": true,
-    "editor.tabCompletion": "on",
-    "explorer.openEditors.sortOrder": "fullPath",
-    "files.exclude": {
-        "**/.trunk/*out": true
-    },
-    "files.watcherExclude": {
-        "**/.trunk/*out": true
-    },
-    "git.allowNoVerifyCommit": true,
-    "html.completion.attributeDefaultValue": "singlequotes",
-    "html.format.endWithNewline": true,
-    "json.schemas": [],
-    "jupyter.generateSVGPlots": true,
-    "jupyter.pylanceHandlesNotebooks": true,
-    "jupyter.sendSelectionToInteractiveWindow": true,
-    "notebook.consolidatedRunButton": true,
-    "pylance.insidersChannel": "daily",
-    "python.formatting.blackArgs": [
-        "--line-length=99"
-    ],
-    "python.formatting.provider": "black",
-    "python.sortImports.args": [
-        "--profile",
-        "black"
-    ],
-    "source.organizeImports": true,
-    "telemetry.telemetryLevel": "crash",
-    "terminal.external.osxExec": "iTerm.app",
-    "trunk.trunkGrayOutNonBlockingIssues": false,
-    "git.autofetch": true,
-    "workbench.colorTheme": "Dark SynthWave '84",
-    "workbench.iconTheme": "Monokai Pro Icons",
-    "sync.autoUpload": true,
-    "sync.quietSync": true
+  "explorer.openEditors.sortOrder" : "fullPath",
+  "jupyter.sendSelectionToInteractiveWindow" : true,
+  "[python]" : {
+    "editor.codeActionsOnSave" : {
+      "source.organizeImports" : true
+    }
+  },
+  "notebook.consolidatedRunButton" : true,
+  "git.autofetch" : true,
+  "git.allowNoVerifyCommit" : true,
+  "source.organizeImports" : true,
+  "jupyter.generateSVGPlots" : true,
+  "python.formatting.blackArgs" : [
+    "--line-length=99"
+  ],
+  "workbench.colorTheme" : "Dark SynthWave '84",
+  "terminal.external.osxExec" : "iTerm.app",
+  "jupyter.pylanceHandlesNotebooks" : true,
+  "files.exclude" : {
+    "**\/.trunk\/*out" : true
+  },
+  "python.sortImports.args" : [
+    "--profile",
+    "black"
+  ],
+  "sync.autoUpload" : true,
+  "telemetry.telemetryLevel" : "crash",
+  "window.zoomLevel" : 1,
+  "editor.formatOnSave" : true,
+  "html.completion.attributeDefaultValue" : "singlequotes",
+  "files.watcherExclude" : {
+    "**\/.trunk\/*out" : true
+  },
+  "editor.accessibilitySupport" : "off",
+  "python.formatting.provider" : "black",
+  "pylance.insidersChannel" : "daily",
+  "trunk.trunkGrayOutNonBlockingIssues" : false,
+  "html.format.endWithNewline" : true,
+  "workbench.iconTheme" : "Monokai Pro Icons",
+  "editor.tabCompletion" : "on",
+  "sync.quietSync" : true,
+  "[jsonc]" : {
+    "editor.defaultFormatter" : "trunk.io"
+  },
+  "json.schemas" : [
+
+  ],
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  }
 }
