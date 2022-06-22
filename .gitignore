@@ -7,3 +7,7 @@ custom/**/*.*sh
 # Sheldon
 home/.sheldon/repos
 home/.sheldon/plugins.lock
+
+# Vscode
+home/.vscode/extenstions/*
+
