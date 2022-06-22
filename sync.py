@@ -53,13 +53,13 @@ def main():
             if is_link_to(dotfile, source):
                 continue
 
-            res = raw_input("Overwrite file `%s'? [y/N] " % dotfile)
+            res = input("Overwrite file `%s'? [y/N] " % dotfile)
             if not res.lower().startswith('y'):
                 print("Skipping `%s'..." % dotfile)
                 continue
             else:
                 # Made backup copy if we're overwriting this file
-                res = raw_input("Make a backup of '%s'? [y/N] " % dotfile)
+                res = input("Make a backup of '%s'? [y/N] " % dotfile)
                 if res.lower().startswith('y'):
                     if not os.path.exists(BACKUP_DIR):
                         os.mkdir(BACKUP_DIR)

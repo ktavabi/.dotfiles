@@ -2,6 +2,7 @@
 
 # Dotfiles and bootstrap installer
 # Installs git, clones repository and symlinks dotfiles to your home directory
+# ran through https://www.shellcheck.net/
 
 set -e
 trap on_error SIGTERM
@@ -15,7 +16,7 @@ YELLOW="${e}[0;93m"
 GREEN="${e}[0;92m"
 
 _exists() {
-  command -v $1 >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 # Success reporter
@@ -58,9 +59,9 @@ on_start() {
   info "This script will guide you through installing git, zsh and dofiles itself."
   echo "It will not install anything without your direct agreement!"
   echo
-  read -p "Do you want to proceed with installation? [y/N] " -n 1 answer
+  read -r -p "Do you want to proceed with installation? [y/N] " -n 1 answer
   echo
-  if [ ${answer} != "y" ]; then
+  if [ "${answer}" != "y" ]; then
     exit 1
   fi
 }
@@ -73,11 +74,11 @@ install_cli_tools() {
 
   info "Trying to detect installed Command Line Tools..."
 
-  if ! [ $(xcode-select -p) ]; then
+  if ! [ "$(xcode-select -p)" ]; then
     echo "You don't have Command Line Tools installed!"
-    read -p "Do you agree to install Command Line Tools? [y/N] " -n 1 answer
+    read -r -p "Do you agree to install Command Line Tools? [y/N] " -n 1 answer
     echo
-    if [ ${answer} != "y" ]; then
+    if [ "${answer}" != "y" ]; then
       exit 1
     fi
 
@@ -102,9 +103,9 @@ install_homebrew() {
 
   if ! _exists brew; then
     echo "Seems like you don't have Homebrew installed!"
-    read -p "Do you agree to proceed with Homebrew installation? [y/N] " -n 1 answer
+    read -r -p"Do you agree to proceed with Homebrew installation? [y/N] " -n 1 answer
     echo
-    if [ ${answer} != "y" ]; then
+    if [ "${answer}" != "y" ]; then
       exit 1
     fi
 
@@ -125,9 +126,9 @@ install_git() {
 
   if ! _exists git; then
     echo "Seems like you don't have Git installed!"
-    read -p "Do you agree to proceed with Git installation? [y/N] " -n 1 answer
+    read -r -p"Do you agree to proceed with Git installation? [y/N] " -n 1 answer
     echo
-    if [ ${answer} != "y" ]; then
+    if [ "${answer}" != "y" ]; then
       exit 1
     fi
 
@@ -153,9 +154,9 @@ install_zsh() {
 
   if ! _exists zsh; then
     echo "Seems like you don't have Zsh installed!"
-    read -p "Do you agree to proceed with Zsh installation? [y/N] " -n 1 answer
+    read -r -p "Do you agree to proceed with Zsh installation? [y/N] " -n 1 answer
     echo
-    if [ ${answer} != "y" ]; then
+    if [ "${answer}" != "y" ]; then
       exit 1
     fi
 
@@ -189,37 +190,53 @@ install_zsh() {
   finish
 }
 
+install_python() {
+  info "Trying to detect python3 installation"
+  if ! python_loc="$(type -p "python3")" || [[ -z $python_loc ]]; then
+  
+  if [ "$(uname)" != "Darwin" ]; then
+      brew install python3
+    elif [ "$(uname)" != "Linux" ]; then
+      sudo apt-get install python3
+    else
+      error "Error: Failed to install Python3!"
+      exit 1
+    fi
+fi
+
+}
+
 install_dotfiles() {
   info "Trying to detect installed dotfiles in $DOTFILES..."
 
-  if [ ! -d $DOTFILES ]; then
+  if [ ! -d "$DOTFILES" ]; then
     echo "Seems like you don't have dotfiles installed!"
-    read -p "Do you agree to proceed with dotfiles installation? [y/N] " -n 1 answer
+    read -r -p "Do you agree to proceed with dotfiles installation? [y/N] " -n 1 answer
     echo
-    if [ ${answer} != "y" ]; then
+    if [ "${answer}" != "y" ]; then
       exit 1
     fi
 
-    git clone --recursive "$GITHUB_REPO_URL_BASE.git" $DOTFILES
-    cd $DOTFILES && ./sync.py && cd -
+    git clone --recursive "$GITHUB_REPO_URL_BASE.git" "$DOTFILES"
+    cd "$DOTFILES" && ./sync.py && cd -
   else
     success "You already have dotfiles installed. Skipping..."
   fi
 
   info "Linking dotfiles..."
-  cd $DOTFILES && ./sync.py && cd -
+  cd "$DOTFILES" && python3 -m sync.py
 
   finish
 }
 
 bootstrap() {
-  read -p "Would you like to bootstrap your environment? [y/N] " -n 1 answer
+  read -r -p "Would you like to bootstrap your environment? [y/N] " -n 1 answer
   echo
-  if [ ${answer} != "y" ]; then
+  if [ "${answer}" != "y" ]; then
     return
   fi
 
-  $DOTFILES/scripts/bootstrap.zsh
+  ./"$DOTFILES"/scripts/bootstrap.zsh
 
   finish
 }
@@ -229,14 +246,14 @@ on_finish() {
   success "Setup was successfully done!"
   success "Happy Coding!"
   echo
-  echo -ne $RED'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
-  echo -e $RESET$BOLD',------,'$RESET
-  echo -ne $YELLOW'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
-  echo -e $RESET$BOLD'|   /\_/\\'$RESET
-  echo -ne $GREEN'-_-_-_-_-_-_-_-_-_-_-_-_-_-'
-  echo -e $RESET$BOLD'~|__( ^ .^)'$RESET
-  echo -ne $CYAN'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
-  echo -e $RESET$BOLD'""  ""'$RESET
+  echo -ne "$RED"'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e "$RESET""$BOLD"',------,'"$RESET"
+  echo -ne "$YELLOW"'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e "$RESET""$BOLD"'|   /\_/'\'\'"$RESET"
+  echo -ne "$GREEN"'-_-_-_-_-_-_-_-_-_-_-_-_-_-'
+  echo -e "$RESET""$BOLD"'~|__( ^ .^)'"$RESET"
+  echo -ne "$CYAN"'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e "$RESET""$BOLD"'""  ""'"$RESET"
   echo
   info "P.S: Don't forget to restart a terminal :)"
   echo
