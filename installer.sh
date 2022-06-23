@@ -43,7 +43,7 @@ finish() {
 
 # Set directory
 export DOTFILES=${1:-"$HOME/.dotfiles"}
-GITHUB_REPO_URL_BASE="https://github.com/denysdovhan/dotfiles"
+GITHUB_REPO_URL_BASE="https://github.com/ktavabi/.dotfiles"
 HOMEBREW_INSTALLER_URL="https://raw.githubusercontent.com/Homebrew/install/master/install"
 
 on_start() {
@@ -53,7 +53,7 @@ on_start() {
   info "  _ / /_/ // /_/ // /_ / __// // //  __/(__  ) "
   info " (_)\__,_/ \____/ \__//_/  /_//_/ \___//____/  "
   info "                                               "
-  info "              by @denysdovhan                  "
+  info "              by @ktavabi                      "
   info "                                               "
 
   info "This script will guide you through installing git, zsh and dofiles itself."
@@ -206,6 +206,17 @@ fi
 
 }
 
+install_sheldon () {
+  info "Trying to detect Sheldon installation"
+  if ! sheldon_loc="$(type -p "sheldon")" || [[ -z $sheldon_loc ]]; then
+    curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+      | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+  else
+    success "You already have Zsh installed. Skipping..."
+  fi
+  sheldon init --shell "${SHELL}"
+}
+
 install_dotfiles() {
   info "Trying to detect installed dotfiles in $DOTFILES..."
 
@@ -218,13 +229,13 @@ install_dotfiles() {
     fi
 
     git clone --recursive "$GITHUB_REPO_URL_BASE.git" "$DOTFILES"
-    cd "$DOTFILES" && ./sync.py && cd -
+    cd "$DOTFILES" && python3 -m sync && cd "$DOTFILES"
   else
     success "You already have dotfiles installed. Skipping..."
   fi
 
   info "Linking dotfiles..."
-  cd "$DOTFILES" && python3 -m sync.py
+  cd "$DOTFILES" && python3 -m sync
 
   finish
 }
@@ -236,7 +247,7 @@ bootstrap() {
     return
   fi
 
-  ./"$DOTFILES"/scripts/bootstrap.zsh
+  "$DOTFILES"/scripts/bootstrap.zsh
 
   finish
 }

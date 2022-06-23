@@ -1,5 +1,12 @@
+#! /usr/bin/zsh
+
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+if [ "$(uname)" != "Darwin" ]; then
+  if command -v fig >/dev/null 2>&1; then
+    . "$HOME/.fig/shell/zshrc.pre.zsh"
+  fi
+fi
+
 #
 # ~/.zshrc
 #
@@ -28,7 +35,7 @@ set -o noclobber
 
 # Extend $PATH without duplicates
 _extend_path() {
-  if ! $(echo "$PATH" | tr ":" "\n" | grep -qx "$1"); then
+  if ! echo "$PATH" | tr ":" "\n" | grep -qx "$1"; then
     export PATH="$1:$PATH"
   fi
 }
@@ -79,7 +86,7 @@ export LESS="${less_opts[*]}"
 # Default editor for local and remote sessions
 if [[ -n "$SSH_CONNECTION" ]]; then
   # on the server
-  if [ command -v vim ] >/dev/null 2>&1; then
+  if command -v vim >/dev/null 2>&1; then
     export EDITOR='vim'
   else
     export EDITOR='vi'
@@ -93,17 +100,20 @@ export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
 # Source local configuration
-if [[ -f "$HOME/.zshlocal" ]]; then
-  source "$HOME/.zshlocal"
+if [[ -f "$HOME"/.zshlocal ]]; then
+  source "$HOME"/.zshlocal
 fi
 
 # Sourcing all zsh files from $DOTFILES/custom
-for file in "$DOTFILES/custom/"*.zsh; do
-  source "$file"
-done
+if [ -n "$(find "$DOTFILES"/custom/ -prune -empty 2>/dev/null)" ]; then
+  echo "Executing custom ZSH scripts..."
+  for file in ls "$DOTFILES"/custom/*.zsh; do
+    source "$file"
+  done
+fi
 
 # Add command gitit to open Github repo in default browser from a local repo
-source $DOTFILES/lib/gitit.zsh
+source "$DOTFILES"/lib/gitit.zsh
 
 # ------------------------------------------------------------------------------
 # Oh My Zsh
@@ -111,7 +121,8 @@ source $DOTFILES/lib/gitit.zsh
 
 # OMZ is managed by Sheldon
 export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
-
+export SHELDON_CONFIG_FILE="$HOME/.sheldon/plugins.toml"
+export SHELDON_DATA_DIR="$HOME/.sheldon/"
 ZSH_THEME="spaceship"
 
 # case insensitive path-completion
@@ -154,4 +165,8 @@ eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" # pipenv zsh tab autocomp
 # eval "$(_FOO_BAR_COMPLETE=zsh_source foo-bar)"
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+if [ "$(uname)" != "Darwin" ]; then
+  if command -v fig >/dev/null 2>&1; then
+    . "$HOME/.fig/shell/zshrc.pre.zsh"
+  fi
+fi
