@@ -1,52 +1,90 @@
 {
-  "explorer.openEditors.sortOrder" : "fullPath",
-  "jupyter.sendSelectionToInteractiveWindow" : true,
-  "[python]" : {
-    "editor.codeActionsOnSave" : {
-      "source.organizeImports" : true
-    }
+  "git.autofetch": true,
+  "[markdown]" : {
+    "editor.defaultFormatter" : "DavidAnson.vscode-markdownlint"
   },
-  "notebook.consolidatedRunButton" : true,
-  "git.autofetch" : true,
-  "git.allowNoVerifyCommit" : true,
-  "source.organizeImports" : true,
-  "jupyter.generateSVGPlots" : true,
-  "python.formatting.blackArgs" : [
-    "--line-length=99"
-  ],
-  "workbench.colorTheme" : "Dark SynthWave '84",
-  "terminal.external.osxExec" : "iTerm.app",
-  "jupyter.pylanceHandlesNotebooks" : true,
-  "files.exclude" : {
-    "**\/.trunk\/*out" : true
-  },
-  "python.sortImports.args" : [
-    "--profile",
-    "black"
-  ],
-  "sync.autoUpload" : true,
-  "telemetry.telemetryLevel" : "crash",
-  "window.zoomLevel" : 1,
-  "editor.formatOnSave" : true,
-  "html.completion.attributeDefaultValue" : "singlequotes",
-  "files.watcherExclude" : {
-    "**\/.trunk\/*out" : true
-  },
-  "editor.accessibilitySupport" : "off",
+  "python.languageServer" : "Pylance",
   "python.formatting.provider" : "black",
-  "pylance.insidersChannel" : "daily",
-  "trunk.trunkGrayOutNonBlockingIssues" : false,
-  "html.format.endWithNewline" : true,
-  "workbench.iconTheme" : "Monokai Pro Icons",
-  "editor.tabCompletion" : "on",
-  "sync.quietSync" : true,
-  "[jsonc]" : {
-    "editor.defaultFormatter" : "trunk.io"
+  "terminal.integrated.sendKeybindingsToShell" : true,
+  "[properties]" : {
+    "editor.defaultFormatter" : "foxundermoon.shell-format"
   },
-  "json.schemas" : [
-
-  ],
+  "sync.autoDownload" : true,
+  "[python]" : {
+    "editor.defaultFormatter" : "ms-python.black-formatter"
+  },
+  "sync.autoUpload" : true,
+  "sync.forceUpload" : false,
+  "[json]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme" : "Synthwave x Fluoromachine",
+  "editor.accessibilitySupport" : "off",
+  "python.linting.pylintEnabled": true,
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
-  }
+  },
+  "sync.gist": "3125da9cfbcb10ecfae725f65899747e",
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "$pythonPath -u $fullFileName",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runhaskell",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "sml": "cd $dir && sml $fileName"
+  },
+  "redhat.telemetry.enabled": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "workbench.settings.openDefaultKeybindings": true,
+  "jupyter.sendSelectionToInteractiveWindow": true
 }
