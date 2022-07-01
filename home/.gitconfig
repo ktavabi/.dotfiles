@@ -8,7 +8,7 @@
   new = green bold
 
 [core]
-  editor = vim
+	editor = atom
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
@@ -100,3 +100,5 @@
 [user]
 	name = Kambiz Tavabi
 	email = ktavabi@gmail.com
+[init]
+	defaultBranch = main

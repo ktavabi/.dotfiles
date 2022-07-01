@@ -32,7 +32,9 @@ cask "atom"
 cask "tradingview"
 cask "latexit"
 cask "zettlr"
-
+cask "zotero"
+cask "discord"
+cask "mactex"
 # Python
 brew pyenv
 
@@ -43,5 +45,6 @@ cask "quicklook-json" # https://github.com/sindresorhus/quick-look-plugins
 cask "qlimagesize" # https://github.com/Nyx0uf/qlImageSize
 cask "webpquicklook" # https://github.com/dchest/webp-quicklook
 
-# MacAppstore 1password vault
-mas install 1333542190
+# MacAppstore
+mas install 1333542190 # 1password vault
+mas install 441258766 # Magnet

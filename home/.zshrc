@@ -56,6 +56,12 @@ _extend_path() {
 [[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
 [[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
 
+# Add Texlive to $PATH
+export TEXLIVE_ROOT="/usr/local/texlive/2022/bin/universal-darwin"
+if [ -d "$TEXLIVE_ROOT" ]; then
+  [[ -d "$TEXLIVE_ROOT/bin" ]] && _extend_path "$TEXLIVE_ROOT/bin"
+fi 
+
 # Add pyenv to $PATH
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d "$PYENV_ROOT/bin" ]] && _extend_path "$PYENV_ROOT/bin"
@@ -159,10 +165,10 @@ source "$ZSH/oh-my-zsh.sh"
 # ------------------------------------------------------------------------------
 
 eval "$(sheldon source)"
+eval "$(/usr/libexec/path_helper)" #mactex
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" # pipenv zsh tab autocomp
-# eval "$(_FOO_BAR_COMPLETE=zsh_source foo-bar)"
 
 # Fig post block. Keep at the bottom of this file.
 if [ "$(uname)" != "Darwin" ]; then
