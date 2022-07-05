@@ -35,6 +35,8 @@ cask "zettlr"
 cask "zotero"
 cask "discord"
 cask "mactex"
+cask "skype"
+
 # Python
 brew pyenv
 
@@ -48,3 +50,6 @@ cask "webpquicklook" # https://github.com/dchest/webp-quicklook
 # MacAppstore
 mas install 1333542190 # 1password vault
 mas install 441258766 # Magnet
+mas install 1516950324 # Moleskine Overlap
+mas install 1489704689 # Journey
+mas install 989178902 # Timepage
