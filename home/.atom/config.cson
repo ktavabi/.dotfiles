@@ -25,6 +25,7 @@
     executablePath: "/Users/kam/.pyenv/shims/pylint"
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   welcome:
     showOnStartup: false
 ".json.source":
