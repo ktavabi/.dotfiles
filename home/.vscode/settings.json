@@ -12,7 +12,7 @@
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
+        "editor.defaultFormatter": "ms-python.python"
     },
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
@@ -75,6 +75,7 @@
     "code-runner.saveFileBeforeRun": true,
     "editor.accessibilitySupport": "off",
     "git.autofetch": true,
+    "jupyter.interactiveWindowMode": "perFile",
     "jupyter.sendSelectionToInteractiveWindow": true,
     "jupyter.widgetScriptSources": [
         "jsdelivr.com",
@@ -93,12 +94,12 @@
     "sync.autoUpload": true,
     "sync.forceUpload": false,
     "sync.gist": "3125da9cfbcb10ecfae725f65899747e",
+    "sync.quietSync": true,
     "terminal.integrated.env.osx": {
         "FIG_NEW_SESSION": "1"
     },
     "terminal.integrated.sendKeybindingsToShell": true,
-    "window.zoomLevel": 2,
-    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorTheme": "Dark SynthWave '84",
     "workbench.editor.splitInGroupLayout": "vertical",
     "workbench.settings.openDefaultKeybindings": true
 }

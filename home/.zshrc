@@ -60,7 +60,10 @@ _extend_path() {
 export TEXLIVE_ROOT="/usr/local/texlive/2022/bin/universal-darwin"
 if [ -d "$TEXLIVE_ROOT" ]; then
   [[ -d "$TEXLIVE_ROOT/bin" ]] && _extend_path "$TEXLIVE_ROOT/bin"
-fi 
+fi
+
+# Add Python3 to $PATH
+[[ -d "$HOME/Library/Python/3.8/bin" ]] && _extend_path "$HOME/Library/Python/3.8/bin"
 
 # Add pyenv to $PATH
 export PYENV_ROOT="$HOME/.pyenv"
@@ -102,8 +105,8 @@ else
 fi
 
 # Compilation flags
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+# export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
 # Source local configuration
 if [[ -f "$HOME"/.zshlocal ]]; then

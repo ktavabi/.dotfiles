@@ -12,6 +12,7 @@ brew "tldr"
 brew "mas"
 brew "openssl@3"
 brew "spaceship"
+brew "tcl-tk"
 
 # Desktop applications
 cask "gpg-suite"
@@ -36,6 +37,7 @@ cask "zotero"
 cask "discord"
 cask "mactex"
 cask "skype"
+cask "xquartz"
 
 # Python
 brew pyenv

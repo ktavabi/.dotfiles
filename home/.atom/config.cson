@@ -11,6 +11,9 @@
     useKite: false
     useSnippets: "all"
   core:
+    disabledPackages: [
+      "markdown-preview"
+    ]
     projectHome: "/Users/kam/Documents/Projects"
     telemetryConsent: "limited"
     themes: [
@@ -24,8 +27,9 @@
     disableTimeout: true
     executablePath: "/Users/kam/.pyenv/shims/pylint"
   "linter-ui-default":
-    panelHeight: 300
-    showPanel: true
+    panelHeight: 343
+  "markdown-preview-plus":
+    syntaxThemeName: "ariake-dark-syntax"
   welcome:
     showOnStartup: false
 ".json.source":
