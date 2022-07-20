@@ -104,3 +104,9 @@ alias docker-composer="docker-compose"
 
 # SQL Server
 alias mssql="docker run -e ACCEPT_EULA=Y -e SA_PASSWORD=LaravelWow1986! -p 1433:1433 mcr.microsoft.com/mssql/server:2017-latest"
+
+# Pipenv list venvs https://tinyurl.com/2448d8pw
+alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
+
+# Upgrade pip setup Tools
+alias pipup='$(which python) -m pip install -U pip setuptools wheel'

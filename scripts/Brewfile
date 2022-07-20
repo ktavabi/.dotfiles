@@ -13,6 +13,14 @@ brew "mas"
 brew "openssl@3"
 brew "spaceship"
 brew "tcl-tk"
+brew "node"
+brew "bazelisk"
+brew "libtensorflow"
+brew "re2
+brew "rust"
+brew "rbenv"
+brew "ruby-build"
+
 
 # Desktop applications
 cask "gpg-suite"

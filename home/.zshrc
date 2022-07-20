@@ -40,14 +40,19 @@ _extend_path() {
   fi
 }
 
+# Add mactex to $PATH
+eval "$(/usr/libexec/path_helper)" #mactex
+
 # Add Homebrew bin to $PATH
 [[ -d "/opt/homebrew/bin" ]] && _extend_path "/opt/homebrew/bin"
+[[ -d "/opt/homebrew/sbin" ]] && _extend_path "/opt/homebrew/sbin"
 
 # Add openssl to $PATH
 [[ -d "/opt/homebrew/opt/openssl@3/bin" ]] && _extend_path "/opt/homebrew/opt/openssl@3/bin"
 
 # Add Homebrew Ruby to $PATH
-[[ -d "/opt/homebrew/opt/ruby/bin" ]] && _extend_path "/opt/homebrew/opt/ruby/bin"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 
 # Add custom bin to $PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
@@ -58,9 +63,7 @@ _extend_path() {
 
 # Add Texlive to $PATH
 export TEXLIVE_ROOT="/usr/local/texlive/2022/bin/universal-darwin"
-if [ -d "$TEXLIVE_ROOT" ]; then
-  [[ -d "$TEXLIVE_ROOT/bin" ]] && _extend_path "$TEXLIVE_ROOT/bin"
-fi
+[[ -d "$TEXLIVE_ROOT/bin" ]] && _extend_path "$TEXLIVE_ROOT/bin"
 
 # Add Python3 to $PATH
 [[ -d "$HOME/Library/Python/3.8/bin" ]] && _extend_path "$HOME/Library/Python/3.8/bin"
@@ -168,7 +171,6 @@ source "$ZSH/oh-my-zsh.sh"
 # ------------------------------------------------------------------------------
 
 eval "$(sheldon source)"
-eval "$(/usr/libexec/path_helper)" #mactex
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" # pipenv zsh tab autocomp
