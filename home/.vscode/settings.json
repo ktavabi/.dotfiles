@@ -126,8 +126,9 @@
         "FIG_NEW_SESSION": "1"
     },
     "terminal.integrated.sendKeybindingsToShell": true,
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "Night Owl",
     "workbench.editor.splitInGroupLayout": "vertical",
     "workbench.settings.openDefaultKeybindings": true,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "workbench.iconTheme": "eq-material-theme-icons-light"
 }
