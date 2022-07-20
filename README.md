@@ -228,4 +228,4 @@ Resources that I used to make these dotfiles better:
 
 ## License
 
-MIT © [Denys Dovhan](https://ktavabi.com)
+MIT © [Kambiz Tavabi](https://kambiztavabi.com)
