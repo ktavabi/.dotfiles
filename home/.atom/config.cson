@@ -27,7 +27,7 @@
     disableTimeout: true
     executablePath: "/Users/kam/.pyenv/shims/pylint"
   "linter-ui-default":
-    panelHeight: 343
+    panelHeight: 300
   "markdown-preview-plus":
     syntaxThemeName: "ariake-dark-syntax"
   welcome:

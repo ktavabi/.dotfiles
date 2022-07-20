@@ -12,13 +12,16 @@
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "atomKeymap.promptV3Features": true,
+    "better-comments.highlightPlainText": true,
     "code-runner.clearPreviousOutput": true,
     "code-runner.executorMap": {
+        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "ahk": "autohotkey",
         "applescript": "osascript",
         "autoit": "autoit3",
@@ -34,7 +37,6 @@
         "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "fsharp": "fsi",
         "go": "go run",
         "groovy": "groovy",
@@ -73,8 +75,24 @@
     },
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
+    "editor.acceptSuggestionOnEnter": "on",
     "editor.accessibilitySupport": "off",
+    "editor.formatOnPaste": true,
+    "editor.parameterHints.enabled": true,
+    "editor.quickSuggestions": {
+        "comments": false,
+        "other": true,
+        "strings": false
+    },
+    "editor.quickSuggestionsDelay": 10,
+    "editor.snippetSuggestions": "bottom",
+    "editor.suggest.localityBonus": true,
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "on",
+    "editor.wordBasedSuggestions": true,
     "git.autofetch": true,
+    "git.enableSmartCommit": true,
     "jupyter.interactiveWindowMode": "perFile",
     "jupyter.sendSelectionToInteractiveWindow": true,
     "jupyter.widgetScriptSources": [
@@ -86,8 +104,16 @@
     "projectManager.git.baseFolders": [
         "$home/Documents/Projects"
     ],
-    "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
+    "python.linting.enabled": true,
+    "python.formatting.blackArgs": [
+        "--target-version",
+        "py310"
+    ], //
+    "python.linting.flake8Args": [
+        "--max-line-length=80"
+    ], // input manually
+    "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": true,
     "redhat.telemetry.enabled": true,
     "sync.autoDownload": true,
@@ -95,11 +121,13 @@
     "sync.forceUpload": false,
     "sync.gist": "3125da9cfbcb10ecfae725f65899747e",
     "sync.quietSync": true,
+    "synthwave84.brightness": 0.45,
     "terminal.integrated.env.osx": {
         "FIG_NEW_SESSION": "1"
     },
     "terminal.integrated.sendKeybindingsToShell": true,
-    "workbench.colorTheme": "Dark SynthWave '84",
+    "workbench.colorTheme": "SynthWave '84",
     "workbench.editor.splitInGroupLayout": "vertical",
-    "workbench.settings.openDefaultKeybindings": true
+    "workbench.settings.openDefaultKeybindings": true,
+    "window.zoomLevel": 1
 }
