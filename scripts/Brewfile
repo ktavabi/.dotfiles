@@ -21,7 +21,6 @@ brew "rust"
 brew "rbenv"
 brew "ruby-build"
 
-
 # Desktop applications
 cask "gpg-suite"
 cask "telegram"

@@ -126,9 +126,16 @@
         "FIG_NEW_SESSION": "1"
     },
     "terminal.integrated.sendKeybindingsToShell": true,
-    "workbench.colorTheme": "Night Owl",
+    "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
     "workbench.editor.splitInGroupLayout": "vertical",
     "workbench.settings.openDefaultKeybindings": true,
+    "autoDocstring.docstringFormat": "one-line-sphinx",
+    "autoDocstring.startOnNewLine": true,
     "window.zoomLevel": 1,
-    "workbench.iconTheme": "eq-material-theme-icons-light"
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.inlineSuggest.enabled": true
 }

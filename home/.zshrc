@@ -53,7 +53,6 @@ eval "$(/usr/libexec/path_helper)" #mactex
 # Add Homebrew Ruby to $PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-
 # Add custom bin to $PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
